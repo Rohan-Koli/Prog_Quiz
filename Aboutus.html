@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./Aboutus.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Judson:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="npd-with-multiple-articles">
+      <section class="home9">
+        <div class="component-113">
+          <div class="component-47">
+            <img
+              class="component-4-child11"
+              alt=""
+              src="./public/rectangle-2-2.svg"
+            />
+
+            <div class="cq-text">
+              <div class="cq7">PQ</div>
+              <div class="text"></div>
+            </div>
+            <div class="component-27">
+              <div class="component-2-child5"></div>
+              <div class="log-in16">Log in</div>
+            </div>
+            <div class="component-37">
+              <div class="component-3-child5"></div>
+              <div class="sign-up7">Sign up</div>
+            </div>
+            <div class="component-4-child12"></div>
+            <div class="prog-quiz8">Prog Quiz</div>
+            <div class="pq10">PQ</div>
+            <div class="frame-quiz-frame">
+              <div class="aboutus-rectangle">
+                <div class="parent-text">
+                  <div class="home10" id="homeText">Home</div>
+                </div>
+                <div class="quizes-text">
+                  <div class="quizes7" id="quizesText">Quizes</div>
+                </div>
+                <div class="component-instance">
+                  <div class="scoreboard7" id="scoreboardText">Scoreboard</div>
+                </div>
+                <div class="about-us7" id="aboutUsText">About us</div>
+              </div>
+            </div>
+          </div>
+          <div class="component-102">
+            <div class="component-55">
+              <!-- <div class="login-forms"></div>
+              <div class="log-in17">Log in</div> -->
+            </div>
+          </div>
+          <div class="component-143" id="component14Container">
+            <!-- <div class="linked-i-n-logo"></div>
+            <div class="log-in18">Sign up</div> -->
+          </div>
+        </div>
+        <div class="prog-quiz-container">
+          <div class="first-quiz-frame">
+            <h1 class="progquiz1">ProgQuiz</h1>
+            <div class="coding-quiz-info">
+              <div class="about-us-rectangle">
+                <div class="at-our-coding">
+                  At our coding quiz website, we're passionate about empowering
+                  learners of all levels. With engaging quizzes spanning diverse
+                  coding languages and concepts, we cater to beginners and
+                  experts alike. Join our vibrant community and embark on an
+                  enriching journey of skill development and discovery. Let's
+                  code together and unlock your full potential!
+                </div>
+              </div>
+              <img
+                class="about-us-1-icon"
+                alt=""
+                src="./public/about-us-1@2x.png"
+              />
+            </div>
+          </div>
+        </div>
+        <img
+          class="facebook-icon"
+          loading="lazy"
+          alt=""
+          src="./public/facebook@2x.png"
+          id="facebookImage"
+        />
+
+        <img
+          class="instagram-icon"
+          loading="lazy"
+          alt=""
+          src="./public/instagram@2x.png"
+          id="instagramImage"
+        />
+
+        <img
+          class="linkedin-icon"
+          loading="lazy"
+          alt=""
+          src="./public/linkedin@2x.png"
+          id="linkedInImage"
+        />
+
+        <img
+          class="twitterx-icon"
+          loading="lazy"
+          alt=""
+          src="./public/twitterx@2x.png"
+          id="twitterXImage"
+        />
+      </section>
+    </div>
+
+    <div id="loginFormPopup" class="popup-overlay" style="display: none">
+      <div class="login-form">
+        <section class="first-name-frame">
+          <img
+            class="first-name-frame-child"
+            alt=""
+            src="./public/rectangle-19.svg"
+          />
+
+          <div class="first-name">First Name</div>
+          <input class="email-rectangle" type="text" />
+
+          <div class="passward">Passward</div>
+          <div class="email">Email</div>
+          <div class="last-name">Last Name</div>
+        </section>
+        <section class="sign-in-label">
+          <div class="component-18-parent">
+            <div class="component-18">
+              <img class="component-18-child" loading="lazy" alt="" />
+
+              <div class="x">x</div>
+            </div>
+            <div class="second-passward-frame">
+              <div class="sign-in">Sign in</div>
+            </div>
+          </div>
+          <div class="space-frame-wrapper">
+            <input class="space-frame" type="text" />
+          </div>
+        </section>
+        <div class="layout-frame">
+          <input class="error-message-frame" type="text" />
+        </div>
+        <section class="spacer-frames">
+          <div class="column-layout">
+            <input class="input-field-pair" type="text" />
+
+            <input class="input-field-pair1" type="text" />
+          </div>
+        </section>
+        <section class="passward-again-label">
+          <div class="log-in-instance">
+            <div class="password-input">
+              <div class="passward-again">Passward again</div>
+            </div>
+            <div class="sign-in-button">
+              <div class="component-57">
+                <div class="component-5-item"></div>
+                <div class="log-in23">Log in</div>
+              </div>
+              <div class="second-input-field">
+                <div class="component-13">
+                  <div class="email-input"></div>
+                  <div class="log-in24">Sign up</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      var homeText = document.getElementById("homeText");
+      if (homeText) {
+        homeText.addEventListener("click", function (e) {
+          window.location.href = "./MainFrame.php";
+        });
+      }
+      
+      var quizesText = document.getElementById("quizesText");
+      if (quizesText) {
+        quizesText.addEventListener("click", function (e) {
+          window.location.href = "./QuizFrame.html";
+        });
+      }
+      
+      var scoreboardText = document.getElementById("scoreboardText");
+      if (scoreboardText) {
+        scoreboardText.addEventListener("click", function (e) {
+          window.location.href = "./Scoreboard.php";
+        });
+      }
+      
+      var aboutUsText = document.getElementById("aboutUsText");
+      if (aboutUsText) {
+        aboutUsText.addEventListener("click", function (e) {
+          window.location.href = "./Aboutus.html";
+        });
+      }
+      
+      var component14Container = document.getElementById("component14Container");
+      if (component14Container) {
+        component14Container.addEventListener("click", function () {
+          var popup = document.getElementById("loginFormPopup");
+          if (!popup) return;
+          var popupStyle = popup.style;
+          if (popupStyle) {
+            popupStyle.display = "flex";
+            popupStyle.zIndex = 100;
+            popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
+            popupStyle.alignItems = "center";
+            popupStyle.justifyContent = "center";
+          }
+          popup.setAttribute("closable", "");
+      
+          var onClick =
+            popup.onClick ||
+            function (e) {
+              if (e.target === popup && popup.hasAttribute("closable")) {
+                popupStyle.display = "none";
+              }
+            };
+          popup.addEventListener("click", onClick);
+        });
+      }
+      
+      var facebookImage = document.getElementById("facebookImage");
+      if (facebookImage) {
+        facebookImage.addEventListener("click", function () {
+          window.open("https://www.facebook.com");
+        });
+      }
+      
+      var instagramImage = document.getElementById("instagramImage");
+      if (instagramImage) {
+        instagramImage.addEventListener("click", function () {
+          window.open("https://www.instagram.com");
+        });
+      }
+      
+      var linkedInImage = document.getElementById("linkedInImage");
+      if (linkedInImage) {
+        linkedInImage.addEventListener("click", function () {
+          window.open("https://www.linkedin.com/");
+        });
+      }
+      
+      var twitterXImage = document.getElementById("twitterXImage");
+      if (twitterXImage) {
+        twitterXImage.addEventListener("click", function () {
+          window.open("https://www.twitter.com/");
+        });
+      }
+      </script>
+  </body>
+</html>

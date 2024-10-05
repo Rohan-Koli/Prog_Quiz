@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="quiz_style.css">
+
+</head>
+
+<body>
+    <form action="form.php" id="myform" method="POST">
+        <!-- <?php
+
+        if (isset($_POST['submit'])) {
+            $score = $_POST['score'];
+            $question_attempt = $_POST['question_attempt'];
+            $local_email = $_POST['local_email'];
+            require_once "database.php";
+            $sql = "INSERT INTO quiz_details1(score,question_attempt,email) VALUES (?,?,?)";
+                    $stmt = mysqli_stmt_init($conn);
+                    $stmt_prepare = mysqli_stmt_prepare($stmt, $sql);
+                    if ($stmt_prepare) {
+                        // mysqli_stmt_bind_param($stmt, "sss", $score, $question_attempt, $$local_email);
+                        // mysqli_stmt_execute($stmt);
+                        echo "<div class='err_text'>You logged in successfully".$local_email."</div>";
+                    }
+        }
+        ?> -->
+
+        <div class="app">
+            <h1 id="h1">Simple Quiz</h1>
+            <div class="quiz">
+                <h2 id="question">Question goes here</h2>
+                
+                <h2 id="score" name="score"></h2>
+                <h2 id="question_atempt" name="question_attempt"></h2>
+                <!-- <input type="hidden" id="local_email" name="local_email"> -->
+                <h2 id="local_email" ></h2>
+                <div id="answer-buttons">
+                    <button type="button" class="btn">answer 1</button>
+                    <button type="button" class="btn">answer 2</button>
+                    <button type="button" class="btn">answer 3</button>
+                    <button type="button" class="btn">answer 4</button>
+                </div>
+                <h3>hooiiiiiii</h3>
+                
+                <button type="button" id="next-btn">Next</button>
+                <input type="submit" name="submit" id="submit" value="submit" style="display: block;">
+        
+                
+            </div>
+
+
+        </div>
+        
+        
+    </form>
+
+    <!-- <div class="app">
+        <h1>Simple Quiz</h1>
+        <div class="quiz">
+            <h2 id="question">Question goes here</h2>
+            <div id="answer-buttons">
+                <button class="btn">answer 1</button>
+                <button class="btn">answer 2</button>
+                <button class="btn">answer 3</button>
+                <button class="btn">answer 4</button>
+            </div>
+            
+            <button id ="next-btn">Next</button>
+        </div>
+
+    </div> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // document.getElementById('myForm').addEventListener('submit', function (event) {
+    //     event.preventDefault();
+        // rest of your code
+
+
+
+        var h2Element = document.createElement("h2");
+
+        // Set its ID attribute to "local_email"
+        h2Element.id = "local_email";
+
+        // Optionally, set inner text or HTML content
+        h2Element.innerText = localStorage.getItem("email");
+
+        // Append the h2 element to the body or any other desired location in the DOM
+        document.body.appendChild(h2Element);
+        const questions = [
+            {
+                question: "HTML stands for -",
+                answers: [
+
+                    { text: "HighText Machine Language", correct: false },
+                    { text: "HyperText Markup Language", correct: true },
+                    { text: "HyperText and links Markup Language", correct: false },
+                    { text: "None of these", correct: false },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "The correct sequence of HTML tags for starting a webpage is -",
+                answers: [
+
+                    { text: "HTML, Head, Title, Body", correct: true },
+                    { text: "HTML, Head, Title, Body", correct: false },
+                    { text: "HTML, Body, Title, Headi", correct: false },
+                    { text: "Head, Title, HTML, body", correct: false },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "Who is the father of HTML?",
+                answers: [
+
+                    { text: "Rasmus Lerdorf", correct: false },
+                    { text: "Brendan Eich", correct: false },
+                    { text: "Tim Berners-Lee", correct: true },
+                    { text: "Sergey Brin", correct: false },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "What is HTML?",
+                answers: [
+
+                    { text: "HTML describes the structure of a webpage", correct: false },
+                    { text: "HTML is the standard markup language mainly used to create web pages", correct: false },
+                    { text: "HTML consists of a set of elements that helps the browser how to view the content", correct: false },
+                    { text: "All of the mentioned", correct: true },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "In which part of the HTML metadata is contained?",
+                answers: [
+
+                    { text: "head tag", correct: true },
+                    { text: "body tag", correct: false },
+                    { text: "html tag", correct: false },
+                    { text: "title tag", correct: false },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "Which element is used for or styling HTML5 layout?",
+                answers: [
+
+                    { text: "jQuery", correct: false },
+                    { text: "JavaScript", correct: false },
+                    { text: "PHP", correct: false },
+                    { text: " CSS", correct: true },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "Which of the following extension is used to save an HTML file?",
+                answers: [
+
+                    { text: ".h", correct: false },
+                    { text: ".html", correct: true },
+                    { text: ".hl", correct: false },
+                    { text: ".hmtl", correct: false },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "Which attribute is used to specify an alternate text for an image, in case the image cannot be displayed?",
+                answers: [
+
+                    { text: "src", correct: false },
+                    { text: "img-alt", correct: false },
+                    { text: "alt", correct: true },
+                    { text: "href", correct: false },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "Which element is used to create an unordered list in HTML?",
+                answers: [
+
+                    { text: "OL", correct: false },
+                    { text: "UL", correct: true },
+                    { text: "LI", correct: false },
+                    { text: "None of these", correct: false },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "Which element is used to create an ordered list in HTML?",
+                answers: [
+
+                    { text: "OL", correct: true },
+                    { text: "UL", correct: false },
+                    { text: "LI", correct: false },
+                    { text: "None of these", correct: false },
+                ],
+                type: "HTML"
+
+            },
+            {
+                question: "CSS stands for -",
+                answers: [
+
+                    { text: "Color and style sheets", correct: false },
+                    { text: "Cascading style sheets", correct: true },
+                    { text: "Cascade style sheets", correct: false },
+                    { text: "None of these", correct: false },
+                ],
+                type: "CSS"
+
+            },
+            {
+                question: "The property in CSS used to change the background color of an element is -",
+                answers: [
+
+                    { text: "background-color", correct: true },
+                    { text: "bgcolor", correct: false },
+                    { text: "color", correct: false },
+                    { text: "All of the above", correct: false },
+                ],
+                type: "css"
+
+            },
+            {
+                question: "Who is the father of HTML?",
+                answers: [
+
+                    { text: "Rasmus Lerdorf", correct: false },
+                    { text: "Brendan Eich", correct: false },
+                    { text: "Tim Berners-Lee", correct: true },
+                    { text: "Sergey Brin", correct: false },
+                ],
+                type: "CSS"
+
+            },
+            {
+                question: "The CSS property used to control the element's font-size is -",
+                answers: [
+
+                    { text: "text-size", correct: false },
+                    { text: "text-style", correct: false },
+                    { text: "font-size", correct: true },
+                    { text: "None of the aboved", correct: false },
+                ],
+                type: "CSS"
+
+            },
+            {
+                question: "Which of the following CSS property is used to set the background image of an element?",
+                answers: [
+
+                    { text: "background-image", correct: true },
+                    { text: "background-attachment", correct: false },
+                    { text: "background-color", correct: false },
+                    { text: "None of the above", correct: false },
+                ],
+                type: "CSS"
+
+            },
+            {
+                question: "Which of the following property is used as the shorthand property for the padding properties?",
+                answers: [
+
+                    { text: "padding-right", correct: false },
+                    { text: "padding-left", correct: false },
+                    { text: "padding", correct: true },
+                    { text: "All of the above", correct: false },
+                ],
+                type: "CSS"
+
+            },
+            {
+                question: "The CSS property used to make the text bold is -",
+                answers: [
+
+                    { text: "font: bold", correct: false },
+                    { text: "font-weight : bold", correct: true },
+                    { text: "weight: bold", correct: false },
+                    { text: "style: bold", correct: false },
+                ],
+                type: "CSS"
+
+            },
+            {
+                question: "Which of the following property is used as the shorthand property of margin properties?",
+                answers: [
+
+                    { text: "margin-right", correct: false },
+                    { text: "margin-left", correct: false },
+                    { text: "margin", correct: true },
+                    { text: "None of the abovef", correct: false },
+                ],
+                type: "CSS"
+
+            },
+            {
+                question: "The CSS property used to specify the transparency of an element is -",
+                answers: [
+
+                    { text: "filter", correct: false },
+                    { text: "opacity", correct: true },
+                    { text: "visibility", correct: false },
+                    { text: "overlay", correct: false },
+                ],
+                type: "CSS"
+
+            },
+            {
+                question: "How to select the elements with the class name 'example'?",
+                answers: [
+
+                    { text: ".example", correct: true },
+                    { text: "example", correct: false },
+                    { text: "#example", correct: false },
+                    { text: "None of these", correct: false },
+                ],
+                type: "CSS"
+
+            },
+            {
+                question: "The CSS property used to specify the transparency of an element is -",
+                answers: [
+
+                    { text: "filter", correct: false },
+                    { text: "opacity", correct: true },
+                    { text: "visibility", correct: false },
+                    { text: "overlay", correct: false },
+                ],
+                type: "JS"
+
+            },
+            {
+                question: "How to select the elements with the class name 'example'?",
+                answers: [
+
+                    { text: ".example", correct: true },
+                    { text: "example", correct: false },
+                    { text: "#example", correct: false },
+                    { text: "None of these", correct: false },
+                ],
+                type: "JS"
+
+            },
+
+        ];
+
+        const questionElement = document.getElementById("question");
+        const answerButtons = document.getElementById("answer-buttons");
+        const nextButton = document.getElementById("next-btn");
+        const scoreElement = document.getElementById("score");
+        const question_atempt = document.getElementById("question_atempt");
+        const submit = document.getElementById("submit");
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            nextButton.innerHTML = "Next";
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+
+            // console.log(quiz_name1)
+            let currentQuestion = questions[currentQuestionIndex];
+            console.log("Current Question type = ", currentQuestion.type)
+            console.log("quiz name = ", localStorage.getItem("quiz"));
+            if (currentQuestion.type == localStorage.getItem("quiz")) {
+                let questionNo = currentQuestionIndex + 1;
+
+                questionElement.innerHTML = currentQuestion.type + " " + questionNo + ". " + currentQuestion.question;
+
+                currentQuestion.answers.forEach(answer => {
+                    const button = document.createElement("button");
+                    button.innerHTML = answer.text;
+                    button.classList.add("btn");
+                    answerButtons.appendChild(button);
+                    if (answer.correct) {
+                        button.dataset.correct = answer.correct;
+                    }
+                    button.addEventListener("click", selectAnswer);
+                });
+            }
+            else {
+                handleNextButton()
+            }
+
+
+
+
+
+        }
+
+        function resetState() {
+            nextButton.style.display = "none";
+            while (answerButtons.firstChild) {
+                answerButtons.removeChild(answerButtons.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedBtn = e.target;
+            const isCorrect = selectedBtn.dataset.correct === "true";
+            if (isCorrect) {
+                selectedBtn.classList.add("correct");
+                score++;
+            } else {
+                selectedBtn.classList.add("incorrect");
+            }
+            Array.from(answerButtons.children).forEach(button => {
+                if (button.dataset.correct === "true") {
+                    button.classList.add("correct");
+                }
+                button.disabled = true;
+            });
+            nextButton.style.display = "block";
+        }
+
+        function showScore() {
+            resetState();
+            questionElement.innerHTML = `You scored ${score} out of ${questions.length}!!!`;
+            // nextButton.innerHTML = "Play Again";
+            nextButton.style.display = "hidden";
+            // nextButton.addEventListener("click",startQuiz());
+
+            // scoreElement.innerText = score;
+            // question_atempt.innerText = questions.length;
+
+
+        }
+
+        function handleNextButton() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                console.log("currentquestionindes = ", currentQuestionIndex);
+                console.log("question.length = ", questions.length);
+                showQuestion();
+            }
+            else {
+                showScore();
+            }
+        }
+
+        nextButton.addEventListener("click", () => {
+            if (currentQuestionIndex < questions.length) {
+                handleNextButton();
+            }
+        })
+
+        startQuiz();
+
+
+        var quiz_name1 = localStorage.getItem("quiz")
+        document.getElementById("h1").textContent = quiz_name1
+        // console.log("Quiz_name = ",quiz_name1 )
+        if (quiz_name1 == "HTML") {
+
+        }
+        else if (quiz_name1 == "CSS") {
+
+        }
+        else if (quiz_name1 == "JS") {
+
+        }
+        else if (quiz_name1 == "JAVA") {
+
+        }
+        else if (quiz_name1 == "PYTHON") {
+
+        }
+        else if (quiz_name1 == "C++") {
+
+        }
+        else if (quiz_name1 == "C") {
+
+        }
+        else if (quiz_name1 == "PHP") {
+
+        }
+        else if (quiz_name1 == "GO") {
+
+        }
+        console.log(quiz_name1)
+        console.log("user email = ", localStorage.getItem('email'));
+    // });
+});
+    </script>
+</body>
+
+</html>

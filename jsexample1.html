@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="timer">
+
+    </div>
+    <button id="stop" value="stop" name="stop" placeholder="stop"></button>
+    <script>
+var ele = document.getElementById('timer');
+var timer;
+        (function (){
+            var sec =0;
+            timer = setInterval(()=>{
+                ele.innerHTML ="00: "+sec;
+                sec++;
+            },1000);
+        
+        
+        var stop = document.getElementById('stop');
+        stop.addEventListener("click",function()
+        {
+            sec=0;
+        })
+    })()
+        
+    </script>
+</body>
+</html>
+
+
+
